@@ -433,7 +433,7 @@ my $LANGDESC = 1;
 my $VERSION = '1.3.13 - 2016/11/11';
 
 # Maximale Speichernutzung (Heapsize im MB) beim Splitten und Compilieren
-my $javaheapsize = 1536;
+my $javaheapsize = 8192;
 
 # Maximale Anzahl an zu benutzenden CPU-Kernen beim Compilieren (mkgmap)
 my $max_jobs = $EMPTY;
@@ -474,7 +474,7 @@ get_osdetails();
 my $help     = $EMPTY;
 my $optional = $EMPTY;
 my $ram      = $EMPTY;
-my $cores    = 2;
+my $cores    = 3;
 my $ele      = 20;
 my $hqele    = $EMPTY;
 my $clm      = 1;   # eventually unused ?
@@ -1211,8 +1211,8 @@ sub download_url {
   my $download_dst = shift;
 
   # Initialize the default verbosity (no downloadbar) and other options
-  my $downloadbar_wget = "-nv";
-  my $downloadbar_curl = "--silent";
+  my $downloadbar_wget = "";
+  my $downloadbar_curl = "";
   my $download_continue_wget = "";
   my $download_continue_curl = "";
   my $downloadspeed_wget = "";
@@ -3689,9 +3689,9 @@ sub create_nsis_exe_full {
   # sleep needed on windows... perl is faster than windows... (Viruschecking ? FortiClient AppDetection)
   if ( $OSNAME eq 'MSWin32' ) {
     # Windows
-    printf { *STDOUT } ( "   (...sleeping a while for preventing viruschecking to lock files...)\n" );
+#    printf { *STDOUT } ( "   (...sleeping a while for preventing viruschecking to lock files...)\n" );
 #    sleep 60;
-    sleep 5;
+#    sleep 5;
   }
   
   # Try to move the Installer into the install directory
