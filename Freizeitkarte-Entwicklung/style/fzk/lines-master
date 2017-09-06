@@ -510,33 +510,33 @@ foot = official & bicycle != *       {set bicycle = no}
 foot = official & vehicle != *       {set vehicle = no}
 foot = official & motor_vehicle != * {set motor_vehicle = no}
 foot = official & motorcar != *      {set motorcar = no}
-foot = official & access != *        {set access = no}
+#foot = official & access != *        {set access = no}
 foot = official                      {set foot = yes; set bfdesignated = yes}
 
 bicycle = official & foot != *          {set foot = no}
 bicycle = official & vehicle != *       {set vehicle = no}
 bicycle = official & motor_vehicle != * {set motor_vehicle = no}
 bicycle = official & motorcar != *      {set motorcar = no}
-bicycle = official & access != *        {set access = no}
+#bicycle = official & access != *        {set access = no}
 bicycle = official                      {set bicycle = yes; set bfdesignated = yes}
 
 vehicle = official & bicycle != *       {set bicycle = yes}
 vehicle = official & foot != *          {set foot = no}
 vehicle = official & motor_vehicle != * {set motor_vehicle = yes}
 vehicle = official & motorcar != *      {set motorcar = yes}
-vehicle = official & access != *        {set access = no}
+#vehicle = official & access != *        {set access = no}
 
 motor_vehicle = official & bicycle != *  {set bicycle = no}
 motor_vehicle = official & vehicle != *  {set vehicle = no}
 motor_vehicle = official & foot != *     {set foot = no}
 motor_vehicle = official & motorcar != * {set motorcar = yes}
-motor_vehicle = official & access != *   {set access = no}
+#motor_vehicle = official & access != *   {set access = no}
 
 motorcar = official & bicycle != *       {set bicycle = no}
 motorcar = official & vehicle != *       {set vehicle = no}
 motorcar = official & motor_vehicle != * {set motor_vehicle = no}
 motorcar = official & foot != *          {set foot = no}
-motorcar = official & access != *        {set access = no}
+#motorcar = official & access != *        {set access = no}
 
 access = official {add foot = yes; add bicycle = yes; add vehicle = yes; add motor_vehicle = yes; set access = yes}
 
@@ -609,8 +609,8 @@ highway = footway | highway = elevator | highway = steps | highway = pedestrian 
 #endif
 
 # access
-highway = * & (access = designated | access = permissive | access = destination | access = customers | access = official | access = public  | access = residents  | access = customer  | access = residential) {set access = yes}
-highway = * & (access = military | access = private | access = agricultural | access = forestry | access = delivery  | access = restricted  | access = psv  | access = bus | access = psv | access = unknown) {set access = no}
+highway = * & (access = designated | access = permissive | access = destination | access = customers | access = official | access = public  | access = residents  | access = customer  | access = residential | access = agricultural | access = forestry | access = delivery  | access = restricted  | access = psv  | access = bus | access = unknown) {set access = yes}
+highway = * & (access = military | access = private ) {set access = no}
 
 # motorcar
 highway = * & (motorcar = designated | motorcar = permissive | motorcar = destination | motorcar = customers | motorcar = official | motorcar = public  | motorcar = residents  | motorcar = customer  | motorcar = residential) {set motorcar = yes}
@@ -721,26 +721,26 @@ junction = roundabout & highway = residential  {set fzkrouting=yes} [0x0c road_c
 # Access=no Wege, fuer Indexsuche, (Nur Wege mit Namen machen Sinn)
 # --------------------------------------------
 # 0x12 = Bitmap 2 (transparent, nur fuer Routing, NoLabel)
-keinrouting = yes & fzkrouting != yes & name = * { set fzkrouting=yes } [0x12 road_class=0 road_speed=0 resolution 24 continue with_actions]
+#keinrouting = yes & fzkrouting != yes & name = * { set fzkrouting=yes } [0x12 road_class=0 road_speed=0 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # Treppen/Stufen
 # --------------------------------------------
 # 0x13 = Bitmap 2 (transparent, nur fuer Routing, NoLabel)
-keinrouting = no & fzkrouting != yes & highway = steps { set fzkrouting=yes; } [0x13 road_class=0 road_speed=0 resolution 24 continue with_actions]
+#keinrouting = no & fzkrouting != yes & highway = steps { set fzkrouting=yes; } [0x13 road_class=0 road_speed=0 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # Reiner Fussweg
 # --------------------------------------------
 # 0x16 = Bitmap 2 (transparent, nur fuer Routing, NoLabel)
-keinrouting = no & fzkrouting != yes & fuss = yes & fahrrad = no & auto = no { set fzkrouting=yes; } [0x16 road_class=0 road_speed=0 resolution 24 continue with_actions]
+#keinrouting = no & fzkrouting != yes & fuss = yes & fahrrad = no & auto = no { set fzkrouting=yes; } [0x16 road_class=0 road_speed=0 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # Radweg und Fussradweg
 # --------------------------------------------
 # 0x0b = Bitmap 2 (transparent, nur fuer Routing, NoLabel)
-keinrouting = no & fzkrouting != yes & radschieben = yes & auto = no { set fzkrouting=yes } [0x0b road_class=0 road_speed=0 resolution 24 continue with_actions]
-keinrouting = no & fzkrouting != yes & auto = no { set fzkrouting=yes } [0x0b road_class=0 road_speed=1 resolution 24 continue with_actions]
+#keinrouting = no & fzkrouting != yes & radschieben = yes & auto = no { set fzkrouting=yes } [0x0b road_class=0 road_speed=0 resolution 24 continue with_actions]
+#keinrouting = no & fzkrouting != yes & auto = no { set fzkrouting=yes } [0x0b road_class=0 road_speed=1 resolution 24 continue with_actions]
 
 
 #==========================================================
@@ -751,69 +751,69 @@ keinrouting = no & fzkrouting != yes & auto = no { set fzkrouting=yes } [0x0b ro
 # motorway
 # --------------------------------------------
 # 0x01 = Bitmap 2 (transparent, nur fuer Routing, Label)
-highway = motorway & fzkrouting != yes {set name = '${ref}' | ''; set fzkrouting=yes} [0x01 road_class=4 road_speed=7 resolution 24 continue with_actions]
+#highway = motorway & fzkrouting != yes {set name = '${ref}' | ''; set fzkrouting=yes} [0x01 road_class=4 road_speed=7 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # trunk
 # --------------------------------------------
 # 0x02 = Bitmap 2 (transparent, nur fuer Routing, Label)
-highway = trunk & fzkrouting != yes {set name = '${name}' | '${ref}' | ''; set fzkrouting=yes} [0x02 road_class=4 road_speed=6 resolution 24 continue with_actions]
+#highway = trunk & fzkrouting != yes {set name = '${name}' | '${ref}' | ''; set fzkrouting=yes} [0x02 road_class=4 road_speed=6 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # primary
 # --------------------------------------------
 # 0x03 = Bitmap 2 (transparent, nur fuer Routing, Label)
-highway = primary & fzkrouting != yes {set name = '${name}' | '${ref}' | ''; set fzkrouting=yes} [0x03 road_class=2 road_speed=5 resolution 24 continue with_actions]
+#highway = primary & fzkrouting != yes {set name = '${name}' | '${ref}' | ''; set fzkrouting=yes} [0x03 road_class=2 road_speed=5 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # secondary
 # --------------------------------------------
 # 0x04 = Bitmap 2 (transparent, nur fuer Routing, Label)
-highway = secondary & fzkrouting != yes {set name = '${name}' | '${ref}' | ''; set fzkrouting=yes} [0x04 road_class=2 road_speed=4 resolution 24 continue with_actions]
+#highway = secondary & fzkrouting != yes {set name = '${name}' | '${ref}' | ''; set fzkrouting=yes} [0x04 road_class=2 road_speed=4 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # tertiary
 # --------------------------------------------
 # 0x05 = Bitmap 2 (transparent, nur fuer Routing, Label)
-highway = tertiary & fzkrouting != yes {set name = '${name}' | '${ref}' | ''; set fzkrouting=yes} [0x05 road_class=2 road_speed=3 resolution 24 continue with_actions]
+#highway = tertiary & fzkrouting != yes {set name = '${name}' | '${ref}' | ''; set fzkrouting=yes} [0x05 road_class=2 road_speed=3 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # residential
 # --------------------------------------------
 # 0x06 = Bitmap 2 (transparent, nur fuer Routing)
-highway = residential & fzkrouting != yes { set fzkrouting=yes }[0x06 road_class=0 road_speed=2 resolution 24 continue with_actions]
+#highway = residential & fzkrouting != yes { set fzkrouting=yes }[0x06 road_class=0 road_speed=2 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # unclassified
 # --------------------------------------------
 # 0x07 = Bitmap 2 (transparent, nur fuer Routing, Label)
-highway = unclassified & fzkrouting != yes { set fzkrouting=yes }[0x07 road_class=0 road_speed=2 resolution 24 continue with_actions]
+#highway = unclassified & fzkrouting != yes { set fzkrouting=yes }[0x07 road_class=0 road_speed=2 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # service
 # --------------------------------------------
 # 0x08 = Bitmap 2 (transparent, nur fuer Routing, Label)
-highway = service & fzkrouting != yes { set fzkrouting=yes }[0x08 road_class=0 road_speed=2 resolution 24 continue with_actions]
+#highway = service & fzkrouting != yes { set fzkrouting=yes }[0x08 road_class=0 road_speed=2 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # living_street
 # --------------------------------------------
 # 0x09 = Bitmap 2 (transparent, nur fuer Routing, Label)
-highway = living_street & fzkrouting != yes { set fzkrouting=yes }[0x09 road_class=0 road_speed=0 resolution 24 continue with_actions]
+#highway = living_street & fzkrouting != yes { set fzkrouting=yes }[0x09 road_class=0 road_speed=0 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # Andere mit dem Auto befahrbare Strasse
 # --------------------------------------------
 # 0x0a = Bitmap 2 (transparent, nur fuer Routing, Label)
-auto = yes & fzkrouting != yes { set fzkrouting=yes } [0x0a road_class=1 road_speed=1 resolution 24 continue with_actions]
+#auto = yes & fzkrouting != yes { set fzkrouting=yes } [0x0a road_class=1 road_speed=1 resolution 24 continue with_actions]
 
 # --------------------------------------------
 # make opposite cycleways, zweite Routingstrasse wird gezeichnet
 # --------------------------------------------
 # Achtung, es liegen zwei routbare Wege uebereinander, auf eventuelle Probleme bei der Indexsuche muss geachtet werden.
 # 0x0e = Bitmap 2 (transparent, nur fuer Routing, NoLabel)
-highway = * & (oneway = yes | oneway = 1 | oneway = true) & (cycleway = opposite | cycleway = opposite_lane | cycleway = opposite_track | oneway:bicycle = no | bicycle:oneway = no) {set oneway = ''; set motorcar = no; set bicycle = yes; set mkgmap:bicycle = yes} [0x0e road_speed=1 road_class=0 resolution 24 continue]
-highway = * & oneway = -1 & (cycleway = opposite | cycleway=opposite_lane | cycleway = opposite_track | oneway:bicycle = no | bicycle:oneway = no) {set oneway = ''; set motorcar = no; set bicycle = yes; set mkgmap:bicycle = yes} [0x0e road_speed=1 road_class=0 resolution 24 continue]
+#highway = * & (oneway = yes | oneway = 1 | oneway = true) & (cycleway = opposite | cycleway = opposite_lane | cycleway = opposite_track | oneway:bicycle = no | bicycle:oneway = no) {set oneway = ''; set motorcar = no; set bicycle = yes; set mkgmap:bicycle = yes} [0x0e road_speed=1 road_class=0 resolution 24 continue]
+#highway = * & oneway = -1 & (cycleway = opposite | cycleway=opposite_lane | cycleway = opposite_track | oneway:bicycle = no | bicycle:oneway = no) {set oneway = ''; set motorcar = no; set bicycle = yes; set mkgmap:bicycle = yes} [0x0e road_speed=1 road_class=0 resolution 24 continue]
 
 
 # ==============================================
