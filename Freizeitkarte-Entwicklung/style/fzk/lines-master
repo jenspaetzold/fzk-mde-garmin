@@ -902,7 +902,7 @@ highway = primary {set name = '${name}' | '${ref}' | ''}        [0x011f15 resolu
 highway = primary {set name = '${name}' | '${ref}' | ''}        [0x012101 resolution 23-23 continue with_actions]
 highway = primary {set name = '${ref}' | ''}                    [0x010f0e resolution 22-22 continue with_actions]
 highway = primary {set name = '${ref}' | ''}                    [0x010f0f resolution 20-21 continue with_actions]
-highway = primary & motorroad = yes {set name = '${ref}' | ''}  [0x010e0b resolution 18-19]
+highway = primary {set name = '${ref}' | ''}                    [0x010e0b resolution 18-19]
 
 
 # Land- oder sehr gut ausgebaute Kreisstrasse:
@@ -1359,13 +1359,13 @@ highway = feldweg1 & man_made = dyke            [0x011f04 resolution 24 continue
 # 0x010e13 = 3 (breit, NoLabel)
 # 0x010e14 = 2 (schmal, NoLabel)
 highway = feldweg1 & keinrouting = yes [0x010e13 resolution 24 continue]
-highway = feldweg1 & keinrouting = yes [0x010e14 resolution 23-23]
+highway = feldweg1 & keinrouting = yes [0x010e14 resolution 22]
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010e09 = 3 (breit, NoLabel)
 # 0x010e07 = 2 (schmal, NoLabel)
 highway = feldweg1  [0x010e09 resolution 24 continue]
-highway = feldweg1  [0x010e07 resolution 23-23]
+highway = feldweg1  [0x010e07 resolution 22]
 
 # Replaced with above, no distinction for auto=yes or auto=no
 ## Nicht fuer Autos freigegeben
@@ -1394,7 +1394,7 @@ highway = feldweg023 & man_made = dyke            [0x011f05 resolution 24 contin
 # 0x010e15 = Bitmap 2 (breit, NoLabel)
 # 0x010e16 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg023 & keinrouting = yes [0x010e15 resolution 24 continue]
-highway = feldweg023 & keinrouting = yes [0x010e16 resolution 23-23]
+highway = feldweg023 & keinrouting = yes [0x010e16 resolution 22]
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010e18 = Bitmap 2 (breit, NoLabel)
@@ -1429,14 +1429,14 @@ highway = feldweg45 & man_made = dyke            [0x011f05 resolution 24 continu
 # 0x010e17 = Bitmap 2 (breit, NoLabel)
 # 0x010e1e = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg45 & keinrouting = yes [0x010e17 resolution 24 continue]
-highway = feldweg45 & keinrouting = yes [0x010e1e resolution 23-23]
+highway = feldweg45 & keinrouting = yes [0x010e1e resolution 22]
 
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010109 = Bitmap 2 (breit, NoLabel)
 # 0x01011d = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg45 [0x010109 resolution 24 continue]
-highway = feldweg45 [0x01011d resolution 23-23]
+highway = feldweg45 [0x01011d resolution 22]
 
 
 # Replaced with above, no distinction for auto=yes or auto=no
@@ -1482,7 +1482,7 @@ highway = road [0x010e01 resolution 24]
 # -------------------
 # Markiert eine Strasse, die sich gerade im Bau befindet.
 # 0x010e04 = Bitmap 2 (NoLabel)
-highway = construction [0x010e04 resolution 23]
+highway = construction [0x010e04 resolution 22]
 
 
 # Geplante Strasse:
@@ -1513,7 +1513,7 @@ highway = raceway [0x010108 resolution 21-22]
 # 0x01210b = Bitmap 2 (breit, NoLabel)
 # 0x01210c = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = via_ferrata [0x01210b resolution 24 continue]
-highway = via_ferrata [0x01210c resolution 23-23]
+highway = via_ferrata [0x01210c resolution 22]
 
 
 # Bussteig:
@@ -1657,11 +1657,11 @@ schutzgebiet = national_park [0x1d resolution 21-23]
 
 # Stromleitung (Überlandleitung)
 # 0x29 = 1 (NoLabel)
-power = line [0x29 resolution 24]
+power = line [0x29 resolution 23]
 
 # Freileitung mit Nieder- oder Mittelspannung.
 # 0x29 = 1 (NoLabel)
-power = minor_line [0x29 resolution 24]
+power = minor_line [0x29 resolution 23]
 
 
 # ------------------------------------------------------------------
@@ -1757,8 +1757,8 @@ railway = platform & (area != * | area = no) [0x010e1d resolution 24]
 # 0x012109 = Bitmap 2 (NoLabel)
 # 0x012113 = Bitmap 2 (NoLabel)
 railway = rail & service = * & bridge = * & bridge != no  [0x010407 resolution 24 continue]
-railway = rail & service = * & tunnel = yes               [0x012109 resolution 23]
-railway = rail & service = *                              [0x012113 resolution 23]
+railway = rail & service = * & tunnel = yes               [0x012109 resolution 22]
+railway = rail & service = *                              [0x012113 resolution 22]
 
 # Eisenbahn, auch S-Bahn: disused
 # 0x012109 = Bitmap 2 (NoLabel)
@@ -1771,9 +1771,9 @@ railway = disused                              [0x012113 resolution 24]
 # 0x012109 = Bitmap 2 (NoLabel)
 # 0x012103 = Bitmap 2 (NoLabel)
 railway = rail & bridge = * & bridge != no  [0x010407 resolution 24 continue]
-railway = rail & tunnel = yes               [0x012109 resolution 22]
+railway = rail & tunnel = yes               [0x012109 resolution 20]
 ### railway = rail & embankment = yes [0x011f05 resolution 24 continue]
-railway = rail                              [0x012103 resolution 22]
+railway = rail                              [0x012103 resolution 20]
 
 
 # S-Bahn (wie Eisenbahn; kann auch teilweise unterirdisch verkehren).
@@ -1807,9 +1807,9 @@ railway = subway                              [0x01210a resolution 22]
 # 0x14     = Bitmap 4 (Label, SmallFont)
 # 0x01210e = Bitmap 2 (Label, SmallFont)
 railway = tram & bridge = * & bridge != no  [0x010405 resolution 24 continue]
-railway = tram & tunnel = yes               [0x01210e resolution 23]
+railway = tram & tunnel = yes               [0x01210e resolution 22]
 ### railway = tram & embankment = yes [0x011f04 resolution 24 continue]
-railway = tram                              [0x14     resolution 23]
+railway = tram                              [0x14     resolution 22]
 
 
 # ------------------------------------------------------------
@@ -1822,7 +1822,7 @@ railway = tram                              [0x14     resolution 23]
 # 0x11     = Bitmap 2 (transparent, nur fuer Routing)
 # 0x011f1f = Bitmap 4 (3 Pixel gefuellt, NoLabel)
 aerialway = cable_car | aerialway = gondola | aerialway = mixed_lift [0x11 road_class=0 road_speed=0 resolution 24 continue]
-aerialway = cable_car | aerialway = gondola | aerialway = mixed_lift [0x011f1f resolution 23]
+aerialway = cable_car | aerialway = gondola | aerialway = mixed_lift [0x011f1f resolution 22]
 
 # chair_lift: Ein Sessellift
 # drag_lift: Ein Schlepplift fuer Skifahrer.
@@ -1830,15 +1830,15 @@ aerialway = cable_car | aerialway = gondola | aerialway = mixed_lift [0x011f1f r
 # 0x11     = Bitmap 2 (transparent, nur fuer Routing, NoLabel)
 # 0x011f1e = Bitmap 4 (3 Pixel gefuellt, NoLabel)
 aerialway = chair_lift | aerialway = drag_lift | aerialway=t-bar [0x11 road_class=0 road_speed=0 resolution 24 continue]
-aerialway = chair_lift | aerialway = drag_lift | aerialway=t-bar [0x011f1e resolution 23]
+aerialway = chair_lift | aerialway = drag_lift | aerialway=t-bar [0x011f1e resolution 22]
 
 # rope-tow: A tow-line for skiers and riders. The passengers hold the rope by hand or use special tow grabbers (nutcrackers). 
 # 0x011f1e = Bitmap 4 (3 Pixel gefuellt, NoLabel)
-aerialway = rope_tow [0x011f1e resolution 23]
+aerialway = rope_tow [0x011f1e resolution 22]
 
 # Materialseilbahn. Personentransport ist normalerweise nicht erlaubt.
 # 0x01210d = Bitmap 4 (3 Pixel gefuellt, NoLabel)
-aerialway = goods [0x01210d resolution 23]
+aerialway = goods [0x01210d resolution 22]
 
 
 # -------------------------------------------------
