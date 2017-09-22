@@ -786,8 +786,8 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #7BCA8B"
-"# c #B3E2A8"
+"! c #8BDA9B"
+"# c #C3F2B8"
 "################################"
 "################################"
 "################################"
@@ -848,7 +848,7 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
-"1 c #CFECA8"
+"1 c #DFFCB8"
 [end]
 
 
@@ -876,7 +876,7 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="0 0 1 0"
-"1 c #F0F0D8"
+"1 c #33CC99"
 [end]
 
 
@@ -2022,8 +2022,8 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #3BB551"
-"# c #B3E2A8"
+"! c #4BC561"
+"# c #C3F2B8"
 "!!######!!######!!######!!######"
 "!!######!!######!!######!!######"
 "################################"
@@ -2070,8 +2070,8 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #7BCA8B"
-"# c #CDF6CA"
+"! c #8BDA9B"
+"# c #D0FFD0"
 "################################"
 "################################"
 "################################"
@@ -2118,8 +2118,8 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #7BCA8B"
-"# c #B3E2A8"
+"! c #8BDA9B"
+"# c #C3F2B8"
 "################################"
 "################################"
 "################################"
@@ -2214,8 +2214,8 @@ ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No
 Xpm="32 32 2 1"
-"! c #7BCA8B"
-"# c #B3E2A8"
+"! c #8BDA9B"
+"# c #D3F2B8"
 "################################"
 "################################"
 "################################"
@@ -2415,7 +2415,6 @@ String3=0x02,[Landstraße]
 String4=0x04,[Secondary Road]
 ExtendedLabels=N
 [end]
-
 
 [_line]
 Type=0x05
@@ -2862,9 +2861,11 @@ CustomColor=No
 [_line]
 Type=0x29
 UseOrientation=Y
-LineWidth=1
-Xpm="0 0 1 0"
-"1 c #777777"
+Xpm="32 1 2  1"
+"! c #3D3D3D"
+"  c none"
+"  !!!  !  !!!  !  !!!  !  !!!  !"
+;12345678901234567890123456789012
 String1=0x00,Stromleitung
 String2=0x01,Stromleitung
 String3=0x02,Stromleitung
