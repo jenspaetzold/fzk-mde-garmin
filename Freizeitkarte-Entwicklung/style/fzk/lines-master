@@ -1,4 +1,4 @@
-﻿# ---------------------------------------
+# ---------------------------------------
 # Zweck   : mkgmap-Regeln fuer Linien
 # Version : 0.1 - 23.09.2011
 # Version : 0.2 - 03.10.2011: Adresssuche
@@ -899,9 +899,9 @@ highway = primary & man_made = dyke            [0x011f03 resolution 24 continue 
 # 0x010f0f = 1/1 (schmal, NoLabel)
 # 0x010e0b = 1 (sehr schmal, NoLabel)
 highway = primary {set name = '${name}' | '${ref}' | ''}        [0x011f15 resolution 24 continue with_actions]
-highway = primary {set name = '${name}' | '${ref}' | ''}        [0x012101 resolution 23-23 continue with_actions]
-highway = primary {set name = '${ref}' | ''}                    [0x010f0e resolution 22-22 continue with_actions]
-highway = primary {set name = '${ref}' | ''}                    [0x010f0f resolution 20-21 continue with_actions]
+#highway = primary {set name = '${name}' | '${ref}' | ''}        [0x012101 resolution 23-23 continue with_actions]
+#highway = primary {set name = '${ref}' | ''}                    [0x010f0e resolution 22-22 continue with_actions]
+highway = primary {set name = '${ref}' | ''}                    [0x010f0f resolution 20 continue with_actions]
 highway = primary {set name = '${ref}' | ''}                    [0x010e0b resolution 18-19]
 
 
@@ -922,9 +922,9 @@ highway = secondary & man_made = dyke           [0x01040c resolution 24 continue
 # 0x010f10 = 2/1 (mittel, NoLabel)
 # 0x010f11 = 1/1 (schmal, NoLabel)
 highway = secondary {set name = '${ref}' | ''} [0x011f16 resolution 24 continue with_actions]
-highway = secondary {set name = '${ref}' | ''} [0x010e0d resolution 23-23 continue with_actions]
-highway = secondary {set name = '${ref}' | ''} [0x010f10 resolution 22-22 continue with_actions]
-highway = secondary {set name = '${ref}' | ''} [0x010f11 resolution 20-21]
+#highway = secondary {set name = '${ref}' | ''} [0x010e0d resolution 23-23 continue with_actions]
+highway = secondary {set name = '${ref}' | ''} [0x010f10 resolution 20 continue with_actions]
+highway = secondary {set name = '${ref}' | ''} [0x010f11 resolution 18-19]
 
 
 # Kreisstrasse:
@@ -943,8 +943,8 @@ highway = tertiary & man_made = dyke            [0x011f03 resolution 24 continue
 # 0x010f12 = 2/1 (mittel, NoLabel)
 # 0x010f13 = 1/1 (schmal, NoLabel)
 highway = tertiary {set name = '${name}' | '${ref}' | ''} [0x010e0e resolution 24 continue with_actions]
-highway = tertiary {set name = '${ref}' | ''}             [0x010f12 resolution 22-23 continue with_actions]
-highway = tertiary {set name = '${ref}' | ''}             [0x010f13 resolution 20-21]
+highway = tertiary {set name = '${ref}' | ''}             [0x010f12 resolution 20 continue with_actions]
+highway = tertiary {set name = '${ref}' | ''}             [0x010f13 resolution 18-19]
 
 
 # Strasse an und in Wohngebieten:
@@ -1223,6 +1223,7 @@ highway = steps & man_made = dyke            [0x011f04 resolution 24 continue]
 # Allgemein oeffentlich
 # 0x011f11 = Bitmap 4 (NoLabel)
 highway = steps [0x011f11 resolution 24 continue]
+highway = steps [0x010e05 resolution 22-23]
 
 
 # Weg oder Strasse nur fuer Fussgaenger:
