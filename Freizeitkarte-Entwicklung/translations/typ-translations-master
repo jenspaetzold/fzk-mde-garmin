@@ -1,4 +1,4 @@
-﻿; typ-translations-master
+; typ-translations-master
 ; ========================
 ; Purpose: Contains all needed strings for the different objects in the
 ;          TYP source files (e.g. freizeit.txt).
@@ -2463,32 +2463,32 @@ String=0x15,Ścieżka rowerowa (częściowo ograniczona)
 String=0x19,Путь (ограниченный доступ)
 [end]
 
-; Track/Dirt Road 1 (restricted) <=> Feld- / Waldweg 1 (Eingeschränkt) breit
+; restricted <=> Eingeschränkt breit
 [_line]
 Type=0x10e13
-String=0x00,Track/Dirt Road 1 (restricted)
-String=0x01,Chemin/Piste 1 (accès limité)
-String=0x02,Feld-/Waldweg 1 (Eingeschränkt)
-String=0x03,Onverharde weg 1 (afgesloten)
-String=0x04,Track/Dirt Road 1 (restricted)
-String=0x05,Strada non asfaltata 1 (accesso limitato)
-String=0x10,Trilha 1 (restrita)
-String=0x15,Ścieżka rowerowa 1 (częściowo ograniczona)
-String=0x19,Грунтовая дорога 1 (ограниченный доступ)
+String=0x00,restricted
+String=0x01,accès limité
+String=0x02,Eingeschränkt
+String=0x03,afgesloten
+String=0x04,restricted
+String=0x05,accesso limitato
+String=0x10,restrita
+String=0x15,częściowo ograniczona
+String=0x19,ограниченный доступ
 [end]
 
-; Track/Dirt Road 1 (restricted) <=> Feld-/Waldweg 1 (Eingeschränkt) schmal
+; restricted <=> Eingeschränkt schmal
 [_line]
 Type=0x10e14
-String=0x00,Track/Dirt Road 1 (restricted)
-String=0x01,Chemin/Piste 1 (accès limité)
-String=0x02,Feld-/Waldweg 1 (Eingeschränkt)
-String=0x03,Onverharde weg 1 (afgesloten)
-String=0x04,Track/Dirt Road 1 (restricted)
-String=0x05,Strada non asfaltata 1 (accesso limitato)
-String=0x10,Trilha 1 (restrita)
-String=0x15,Ścieżka rowerowa 1 (częściowo ograniczona)
-String=0x19,Грунтовая дорога 1 (ограниченный доступ)
+String=0x00,restricted
+String=0x01,accès limité
+String=0x02,Eingeschränkt
+String=0x03,afgesloten
+String=0x04,restricted
+String=0x05,accesso limitato
+String=0x10,restrita
+String=0x15,częściowo ograniczona
+String=0x19,ограниченный доступ
 [end]
 
 ; Track/Dirt Road n.a/2/3 (restricted) <=> Feld-/Waldweg -/2/3 (Eingeschränkt) breit
