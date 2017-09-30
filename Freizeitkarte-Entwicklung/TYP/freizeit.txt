@@ -3754,8 +3754,8 @@ BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #DDDDDD"
 "2 c #6A6A6A"
-String1=0x00,Straße unbekannter Art
-String2=0x01,Straße unbekannter Art
+String1=0x00,Straße unbekannter Art breit
+String2=0x01,Straße unbekannter Art breit
 String3=0x02,Straße unbekannter Art
 String4=0x04,Unknown Street
 ExtendedLabels=Y
@@ -3772,8 +3772,8 @@ BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F6A4A4"
 "2 c #6A6A6A"
-String1=0x00,Straße unbekannter Art (Eingeschränkt)
-String2=0x01,Straße unbekannter Art (Eingeschränkt)
+String1=0x00,Straße unbekannter Art (Eingeschränkt) breit
+String2=0x01,Straße unbekannter Art (Eingeschränkt) breit
 String3=0x02,Straße unbekannter Art (Eingeschränkt)
 String4=0x04,Unknown Street (restricted)
 ExtendedLabels=Y
@@ -4068,14 +4068,21 @@ CustomColor=No
 [_line]
 Type=0x10e13
 UseOrientation=Y
-LineWidth=3
-Xpm="0 0 1 0"
-"1 c #BD65D5"
-String1=0x00,Feld- / Waldweg (1) (Eingeschränkt) breit
-String2=0x01,Feld- / Waldweg (1) (Eingeschränkt) breit
-String3=0x02,Feld- / Waldweg (1) (Eingeschränkt)
-String4=0x04,Track/Dirt Road (1) (restricted)
-ExtendedLabels=Y
+Xpm="32 6 2  1"
+"! c #FF0000"
+"  c none"
+"      !  !            !  !      "
+"      !  !            !  !      "
+"      !  !            !  !      "
+"      !  !            !  !      "
+"      !  !            !  !      "
+"      !  !            !  !      "
+;12345678901234567890123456789012
+String1=0x00,Eingeschränkt breit
+String2=0x01,Eingeschränkt breit
+String3=0x02,Eingeschränkt
+String4=0x04,restricted
+ExtendedLabels=N
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
@@ -4084,14 +4091,21 @@ CustomColor=No
 [_line]
 Type=0x10e14
 UseOrientation=Y
-LineWidth=2
-Xpm="0 0 1 0"
-"1 c #BD65D5"
-String1=0x00,Feld- / Waldweg (1) (Eingeschränkt) schmal
-String2=0x01,Feld- / Waldweg (1) (Eingeschränkt) schmal
-String3=0x02,Feld- / Waldweg (1) (Eingeschränkt)
-String4=0x04,Track/Dirt Road (1) (restricted)
-ExtendedLabels=Y
+Xpm="32 6 2  1"
+"! c #FF0000"
+"  c none"
+"      !  !            !  !      "
+"      !  !            !  !      "
+"      !  !            !  !      "
+"      !  !            !  !      "
+"      !  !            !  !      "
+"                                "
+;12345678901234567890123456789012
+String1=0x00,Eingeschränkt schmal
+String2=0x01,Eingeschränkt schmal
+String3=0x02,Eingeschränkt
+String4=0x04,restricted
+ExtendedLabels=N
 FontStyle=NoLabel (invisible)
 CustomColor=No
 [end]
@@ -6308,6 +6322,42 @@ Xpm="32 2 2  1"
 "!!!!!!!!!#######!!!!!!!!!#######"
 ;12345678901234567890123456789012
 String1=0x00,Bahn (Service)
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x12201
+UseOrientation=Y
+LineWidth=1
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #DDDDDD"
+"2 c #6A6A6A"
+String1=0x00,Straße unbekannter Art schmal
+String2=0x01,Straße unbekannter Art schmal
+String3=0x02,Straße unbekannter Art
+String4=0x04,Unknown Street
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x12202
+UseOrientation=Y
+LineWidth=1
+BorderWidth=1
+Xpm="0 0 2 0"
+"1 c #F6A4A4"
+"2 c #6A6A6A"
+String1=0x00,Straße unbekannter Art (Eingeschränkt) schmal
+String2=0x01,Straße unbekannter Art (Eingeschränkt) schmal
+String3=0x02,Straße unbekannter Art (Eingeschränkt)
+String4=0x04,Unknown Street (restricted)
 ExtendedLabels=Y
 FontStyle=NoLabel (invisible)
 CustomColor=No

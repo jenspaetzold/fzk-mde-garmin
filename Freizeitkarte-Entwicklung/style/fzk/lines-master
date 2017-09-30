@@ -1149,7 +1149,7 @@ highway = radweg & man_made = dyke            [0x011f05 resolution 24 continue]
 # 0x011f1d = Bitmap 2 (breit, NoLabel)
 # 0x010f07 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = radweg [0x011f1d resolution 24 continue]
-highway = radweg [0x010f07 resolution 23-23]
+highway = radweg [0x010f07 resolution 22-23]
 
 
 # "fussweg" verarbeiten:
@@ -1174,7 +1174,7 @@ highway = fussweg & keinrouting = yes [0x010e12 resolution 23-23]
 # 0x011f12 = 2 (breit, NoLabel)
 # 0x010e05 = 1 (schmal, NoLabel)
 highway = fussweg [0x011f12 resolution 24 continue]
-highway = fussweg [0x010e05 resolution 23-23]
+highway = fussweg [0x010e05 resolution 22-23]
 
 
 # "radfussweg" verarbeiten:
@@ -1190,7 +1190,7 @@ highway = radfussweg & man_made = dyke            [0x011f05 resolution 24 contin
 # 0x011f1c = 2 (breit, NoLabel)
 # 0x010e10 = 1 (schmal, NoLabel)
 highway = radfussweg [0x011f1c resolution 24 continue]
-highway = radfussweg [0x010e10 resolution 23-23]
+highway = radfussweg [0x010e10 resolution 22-23]
 
 
 # Ausgeschilderter Reitweg (nur Reiter erlaubt):
@@ -1268,26 +1268,26 @@ highway = pedestrian & (area != * | area = no) [0x010f09 resolution 21-22]
 # 0x010e0c = Bitmap 2 (breit, NoLabel)
 # 0x010e06 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = sacscalet1 [0x010e0c resolution 24 continue]
-highway = sacscalet1 [0x010e06 resolution 23-23]
+highway = sacscalet1 [0x010e06 resolution 22-23]
 
 # 0x011f09 = Bitmap 2 (breit, NoLabel)
 # 0x011f0c = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 #highway = bergweg12 [0x011f09 resolution 24 continue]
-#highway = bergweg12 [0x011f0c resolution 23-23]
+#highway = bergweg12 [0x011f0c resolution 22-23]
 
 # 0x011f07 = Bitmap 2 (breit, NoLabel)
 # 0x011f0a = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 #highway = bergweg34 [0x011f07 resolution 24 continue]
-#highway = bergweg34 [0x011f0a resolution 23-23]
+#highway = bergweg34 [0x011f0a resolution 22-23]
 highway = sacscalet2t3 [0x011f07 resolution 24 continue]
-highway = sacscalet2t3 [0x011f0a resolution 23-23]
+highway = sacscalet2t3 [0x011f0a resolution 22-23]
 
 # 0x011f08 = Bitmap 2 (breit, NoLabel)
 # 0x011f0b = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 #highway = bergweg56 [0x011f08 resolution 24 continue]
-#highway = bergweg56 [0x011f0b resolution 23-23]
+#highway = bergweg56 [0x011f0b resolution 22-23]
 highway = sacscalet4t5t6 [0x011f08 resolution 24 continue]
-highway = sacscalet4t5t6 [0x011f0b resolution 23-23]
+highway = sacscalet4t5t6 [0x011f0b resolution 22-23]
 
 
 # Allgemeiner Weg oder Pfad:
@@ -1306,13 +1306,13 @@ highway = path & man_made = dyke            [0x011f05 resolution 24 continue]
 # 0x010e11 = Bitmap 2 (breit, NoLabel)
 # 0x010e12 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = path & keinrouting = yes [0x010e11 resolution 24 continue]
-highway = path & keinrouting = yes [0x010e12 resolution 23-23]
+highway = path & keinrouting = yes [0x010e12 resolution 22-23]
 
 # Allgemein oeffentlich
 # 0x010e0c = Bitmap 2 (breit, NoLabel)
 # 0x010e06 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = path  & (area != * | area = no) [0x010e0c resolution 24 continue]
-highway = path  & (area != * | area = no) [0x010e06 resolution 23-23]
+highway = path  & (area != * | area = no) [0x010e06 resolution 22-23]
 
 
 # Wirtschafts-, Feld- oder Waldweg:
@@ -1360,7 +1360,7 @@ highway = feldweg1 & man_made = dyke            [0x011f04 resolution 24 continue
 # 0x010e13 = 3 (breit, NoLabel)
 # 0x010e14 = 2 (schmal, NoLabel)
 highway = feldweg1 & keinrouting = yes [0x010e13 resolution 24 continue]
-highway = feldweg1 & keinrouting = yes [0x010e14 resolution 22]
+highway = feldweg1 & keinrouting = yes [0x010e14 resolution 22 continue]
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010e09 = 3 (breit, NoLabel)
@@ -1394,8 +1394,8 @@ highway = feldweg023 & man_made = dyke            [0x011f05 resolution 24 contin
 # Benutzung verboten, kein Routing
 # 0x010e15 = Bitmap 2 (breit, NoLabel)
 # 0x010e16 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
-highway = feldweg023 & keinrouting = yes [0x010e15 resolution 24 continue]
-highway = feldweg023 & keinrouting = yes [0x010e16 resolution 22]
+highway = feldweg023 & keinrouting = yes [0x010e13 resolution 24 continue]
+highway = feldweg023 & keinrouting = yes [0x010e14 resolution 22 continue]
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010e18 = Bitmap 2 (breit, NoLabel)
@@ -1429,8 +1429,8 @@ highway = feldweg45 & man_made = dyke            [0x011f05 resolution 24 continu
 # Benutzung verboten, kein Routing
 # 0x010e17 = Bitmap 2 (breit, NoLabel)
 # 0x010e1e = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
-highway = feldweg45 & keinrouting = yes [0x010e17 resolution 24 continue]
-highway = feldweg45 & keinrouting = yes [0x010e1e resolution 22]
+highway = feldweg45 & keinrouting = yes [0x010e13 resolution 24 continue]
+highway = feldweg45 & keinrouting = yes [0x010e14 resolution 22 continue]
 
 
 # Nicht fuer Autos freigegeben oder öffentlich
@@ -1472,11 +1472,13 @@ highway = road & keinrouting = yes [0x010e02 resolution 24]
 
 # Nicht fuer Autos freigegeben
 # 0x010e02 = 2/1 (NoLabel)
-highway = road &  auto = no [0x010e02 resolution 24]
+highway = road &  auto = no [0x010e02 resolution 24 continue]
+highway = road &  auto = no [0x012202 resolution 22]
 
 # Allgemein oeffentlich
 # 0x010e01 = 2/1 (NoLabel)
-highway = road [0x010e01 resolution 24]
+highway = road [0x010e01 resolution 24 continue]
+highway = road [0x012201 resolution 22]
 
 
 # Baustelle / im Bau:
