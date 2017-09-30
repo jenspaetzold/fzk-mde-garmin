@@ -4016,7 +4016,7 @@ Type=0x10e10
 UseOrientation=Y
 LineWidth=1
 Xpm="0 0 1 0"
-"1 c #0080FF"
+"1 c #0020BF"
 String1=0x00,Rad- / Fußweg schmal
 String2=0x01,Rad- / Fußweg schmal
 String3=0x02,Rad- / Fußweg
@@ -4365,7 +4365,7 @@ CustomColor=No
 [_line]
 Type=0x10f05
 UseOrientation=Y
-LineWidth=4
+LineWidth=2
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F6A4A4"
@@ -4383,7 +4383,7 @@ CustomColor=No
 [_line]
 Type=0x10f06
 UseOrientation=Y
-LineWidth=2
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F6A4A4"
@@ -4402,7 +4402,7 @@ CustomColor=No
 Type=0x10f07
 UseOrientation=Y
 Xpm="32 2 2  1"
-"! c #0040FF"
+"! c #0020BF"
 "  c none"
 "!!!!    !!!!    !!!!    !!!!    "
 "                                "
@@ -4420,7 +4420,7 @@ CustomColor=No
 [_line]
 Type=0x10f08
 UseOrientation=Y
-LineWidth=2
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #FEFEFE"
@@ -4686,7 +4686,7 @@ CustomColor=No
 [_line]
 Type=0x10f17
 UseOrientation=Y
-LineWidth=2
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F6A4A4"
@@ -4704,13 +4704,13 @@ CustomColor=No
 [_line]
 Type=0x10f18
 UseOrientation=Y
-LineWidth=2
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
-"1 c #F6A4A4"
+"1 c #FEFEFE"
 "2 c #6A6A6A"
-String1=0x00,Nebenstraße breit
-String2=0x01,Nebenstraße breit
+String1=0x00,Nebenstraße mittel
+String2=0x01,Nebenstraße mittel
 String3=0x02,Nebenstraße
 String4=0x04,Unclassified Road
 ExtendedLabels=Y
@@ -4758,7 +4758,7 @@ CustomColor=No
 [_line]
 Type=0x10f1b
 UseOrientation=Y
-LineWidth=2
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
 "1 c #F6A4A4"
@@ -4776,10 +4776,10 @@ CustomColor=No
 [_line]
 Type=0x10f1c
 UseOrientation=Y
-LineWidth=2
+LineWidth=1
 BorderWidth=1
 Xpm="0 0 2 0"
-"1 c #F6A4A4"
+"1 c #FEFEFE"
 "2 c #6A6A6A"
 String1=0x00,Erschließungsstraße mittel
 String2=0x01,Erschließungsstraße mittel
@@ -5284,7 +5284,7 @@ UseOrientation=Y
 LineWidth=2
 BorderWidth=1
 Xpm="0 0 2 0"
-"1 c #FEFEFE"
+"1 c #F6A4A4"
 "2 c #6A6A6A"
 String1=0x00,Spielstraße breit
 String2=0x01,Spielstraße breit
