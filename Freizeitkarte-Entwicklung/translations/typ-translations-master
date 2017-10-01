@@ -1666,18 +1666,18 @@ String=0x15,Strefa zamieszkania (ograniczony ruch) wąska
 String=0x19,Улица для детских игр (ограниченный доступ)
 [end]
 
-; Track/Dirt Road (4,5) <=> Feld-/Waldweg 4/5 breit
+; Track/Dirt Road (4) <=> Feld-/Waldweg 4 breit
 [_line]
 Type=0x10109
-String=0x00,Track/Dirt Road 4/5
-String=0x01,Chemin/Piste 4/5
-String=0x02,Feld-/Waldweg 4/5
-String=0x03,Onverharde weg 4/5
-String=0x04,Track/Dirt Road 4/5
-String=0x05,Strada non asfaltata 4/5
-String=0x10,Estrada não pavimentada 4/5
-String=0x15,Droga gruntowa 4/5
-String=0x19,Грунтовая дорога 4/5
+String=0x00,Track/Dirt Road 4
+String=0x01,Chemin/Piste 4
+String=0x02,Feld-/Waldweg 4
+String=0x03,Onverharde weg 4
+String=0x04,Track/Dirt Road 4
+String=0x05,Strada non asfaltata 4
+String=0x10,Estrada não pavimentada 4
+String=0x15,Droga gruntowa 4
+String=0x19,Грунтовая дорога 4
 [end]
 
 ; Ditch <=> Wassergraben
@@ -1930,18 +1930,18 @@ String=0x19,Барьер / Опорная стенка
 ;String=0x19,Заповедник
 ;[end]
 
-; Track/Dirt Road 4/5 <=> Feld-/Waldweg 4/5 schmal
+; Track/Dirt Road 4 <=> Feld-/Waldweg 4 schmal
 [_line]
 Type=0x1011d
-String=0x00,Track/Dirt Road 4/5
-String=0x01,Chemin/Piste 4/5
-String=0x02,Feld-/Waldweg 4/5
-String=0x03,Onverharde weg 4/5
-String=0x04,Track/Dirt Road 4/5
-String=0x05,Strada non asfaltata 4/5
-String=0x10,Trilha 4/5
-String=0x15,Polna droga 4/5
-String=0x19,Грунтовая дорога 4/5
+String=0x00,Track/Dirt Road 4
+String=0x01,Chemin/Piste 4
+String=0x02,Feld-/Waldweg 4
+String=0x03,Onverharde weg 4
+String=0x04,Track/Dirt Road 4
+String=0x05,Strada non asfaltata 4
+String=0x10,Trilha 4
+String=0x15,Polna droga 4
+String=0x19,Грунтовая дорога 4
 [end]
 
 ; Track/Dirt Road 4/5 <=> Feld-/Waldweg 4/5 schmal
@@ -2308,18 +2308,18 @@ String=0x15,Polna droga 1
 String=0x19,Грунтовая дорога 1
 [end]
 
-; Track/Dirt Road n.a/2/3 <=> Feld-/Waldweg -/2/3 schmal
+; Track/Dirt Road 2 <=> Feld-/Waldweg 2 schmal
 [_line]
 Type=0x10e08
-String=0x00,Track/Dirt Road n.a/2/3
-String=0x01,Chemin/Piste n.a/2/3
-String=0x02,Feld-/Waldweg -/2/3
-String=0x03,Onverharde bosweg n.a/2/3
-String=0x04,Track/Dirt Road n.a/2/3
-String=0x05,Strada non asfaltata n.a/2/3
-String=0x10,Trilha n.a/2/3
-String=0x15,Polna droga n.a/2/3)
-String=0x19,Грунтовая дорога кроме/2/3
+String=0x00,Track/Dirt Road 2
+String=0x01,Chemin/Piste 2
+String=0x02,Feld-/Waldweg 2
+String=0x03,Onverharde bosweg 2
+String=0x04,Track/Dirt Road 2
+String=0x05,Strada non asfaltata 2
+String=0x10,Trilha 2
+String=0x15,Polna droga 2
+String=0x19,Грунтовая 2
 [end]
 
 ; Track/Dirt Road 1 <=> Feld-/Waldweg 1 breit
@@ -2533,18 +2533,18 @@ String=0x15,Ścieżka rowerowa (częściowo ograniczona) 4/5
 String=0x19,Грунтовая дорога 4/5 (ограниченный доступ)
 [end]
 
-; Track/Dirt Road n.a/2/3 <=> Feld-/Waldweg -/2/3 breit
+; Track/Dirt Road 2 <=> Feld-/Waldweg 2 breit
 [_line]
 Type=0x10e18
-String=0x00,Track/Dirt Road n.a/2/3
-String=0x01,Chemin/Piste n.a/2/3
-String=0x02,Feld-/Waldweg -/2/3
-String=0x03,Onverharde weg n.a/2/3
-String=0x04,Track/Dirt Road n.a/2/3
-String=0x05,Strada non asfaltata n.a/2/3
-String=0x10,Trilha n.a/2/3
-String=0x15,Ścieżka rowerowa n.a/2/3
-String=0x19,Грунтовая дорога н/д/2/3 (ограниченный доступ)
+String=0x00,Track/Dirt Road 2
+String=0x01,Chemin/Piste 2
+String=0x02,Feld-/Waldweg 2
+String=0x03,Onverharde weg 2
+String=0x04,Track/Dirt Road 2
+String=0x05,Strada non asfaltata 2
+String=0x10,Trilha 2
+String=0x15,Ścieżka rowerowa 2
+String=0x19,Грунтовая 2 (ограниченный доступ)
 [end]
 
 ; Runway <=> Start- / Landebahn (mittel)
@@ -4184,88 +4184,102 @@ String=0x15,Linia kolejowa (serwis)
 String=0x19,Железная дорога (служба)
 [end]
 
-
+; Unknown Street <=> Straße unbekannter Art
 [_line]
 Type=0x12201
-String=0x00,Hiking Trail T1
-String=0x01,Chemin de randonnée T1
-String=0x02,Wanderweg T1
-String=0x03,Spoor T1
-String=0x04,Hiking Trail T1
-String=0x05,Sentiero T1
-String=0x10,Trilha T1
-String=0x15,ślad T1
-String=0x19,тропа T1
+String=0x00,Unknown Street
+String=0x01,Rue non classée
+String=0x02,Straße unbekannter Art
+String=0x03,Onbekende straat
+String=0x04,Unknown Street
+String=0x05,Strada non classificata
+String=0x10,Rua desconhecida
+String=0x15,Nieznana droga
+String=0x19,Неизвестная улица
 [end]
 
-
+; Unknown Street (restricted) <=> Straße unbekannter Art (Eingeschränkt)
 [_line]
 Type=0x12202
-String=0x00,Hiking Trail T1
-String=0x01,Chemin de randonnée T1
-String=0x02,Wanderweg T1
-String=0x03,Spoor T1
-String=0x04,Hiking Trail T1
-String=0x05,Sentiero T1
-String=0x10,Trilha T1
-String=0x15,ślad T1
-String=0x19,тропа T1
+String=0x00,Unknown Street (restricted)
+String=0x01,Rue non classée (accès limité)
+String=0x02,Straße unbekannter Art (Eingeschränkt)
+String=0x03,Onbekende straat (afgesloten)
+String=0x04,Unknown Street (restricted)
+String=0x05,Strada non classificata (accesso limitato)
+String=0x10,Rua desconhecida (restrita)
+String=0x15,Nieznana droga o ograniczonym ruchu
+String=0x19,Неизвестная улица (ограниченный доступ)
 [end]
 
-
+; Track/Dirt Road n.a <=> Feld-/Waldweg - breit
 [_line]
 Type=0x12203
-String=0x00,Mountain Trail T2/T3
-String=0x01,Sentier T2/T3
-String=0x02,Bergweg T2/T3
-String=0x03,Bergpad T2/T3
-String=0x04,Mountain Trail T2/T3
-String=0x05,Sentiero alpino T2/T3
-String=0x10,Trilha alpina T2/T3
-String=0x15,Trasa wspinaczkowa T2/T3
-String=0x19,Горная тропа T2/T3
+String=0x00,Track/Dirt Road n.a
+String=0x01,Chemin/Piste n.a
+String=0x02,Feld-/Waldweg -
+String=0x03,Onverharde weg n.a
+String=0x04,Track/Dirt Road n.a
+String=0x05,Strada non asfaltata n.a
+String=0x10,Trilha n.a
+String=0x15,Ścieżka rowerowa n.a
+String=0x19,Грунтовая дорога н/д (ограниченный доступ)
 [end]
 
-
+; Track/Dirt Road 3 <=> Feld-/Waldweg 3 breit
 [_line]
 Type=0x12204
-String=0x00,Mountain Trail T2/T3
-String=0x01,Sentier T2/T3
-String=0x02,Bergweg T2/T3
-String=0x03,Bergpad T2/T3
-String=0x04,Mountain Trail T2/T3
-String=0x05,Sentiero alpino T2/T3
-String=0x10,Trilha alpina T2/T3
-String=0x15,Trasa wspinaczkowa T2/T3
-String=0x19,Горная тропа T2/T3
+String=0x00,Track/Dirt Road 3
+String=0x01,Chemin/Piste 3
+String=0x02,Feld-/Waldweg 3
+String=0x03,Onverharde weg 3
+String=0x04,Track/Dirt Road 3
+String=0x05,Strada non asfaltata 3
+String=0x10,Trilha 3
+String=0x15,Ścieżka rowerowa 3
+String=0x19,Грунтовая дорога 3 (ограниченный доступ)
 [end]
 
-
+; Track/Dirt Road n.a <=> Feld-/Waldweg - schmal
 [_line]
 Type=0x12205
-String=0x00,Alpine Trail T4-T6
-String=0x01,Sentier T4-T6
-String=0x02,Alpiner Weg T4-T6
-String=0x03,Alpine pad T4-T6
-String=0x04,Alpine Trail T4-T6
-String=0x05,Sentiero alpino T4-T6
-String=0x10,Trilha alpina T4-T6
-String=0x15,Trasa wspinaczkowa T4-T6
-String=0x19,Горная тропа T4-T6
+String=0x00,Track/Dirt Road n.a
+String=0x01,Chemin/Piste n.a
+String=0x02,Feld-/Waldweg -
+String=0x03,Onverharde bosweg n.a
+String=0x04,Track/Dirt Road n.a
+String=0x05,Strada non asfaltata n.a
+String=0x10,Trilha n.a
+String=0x15,Polna droga n.a
+String=0x19,Грунтовая дорога кроме
 [end]
 
-
+; Track/Dirt Road 3 <=> Feld-/Waldweg 3 schmal
 [_line]
 Type=0x12206
-String=0x00,Alpine Trail T4-T6
-String=0x01,Sentier T4-T6
-String=0x02,Alpiner Weg T4-T6
-String=0x03,Alpine pad T4-T6
-String=0x04,Alpine Trail T4-T6
-String=0x05,Sentiero alpino T4-T6
-String=0x10,Trilha alpina T4-T6
-String=0x15,Trasa wspinaczkowa T4-T6
-String=0x19,Горная тропа T4-T6
+String=0x00,Track/Dirt Road 3
+String=0x01,Chemin/Piste 3
+String=0x02,Feld-/Waldweg 3
+String=0x03,Onverharde bosweg 3
+String=0x04,Track/Dirt Road 3
+String=0x05,Strada non asfaltata 3
+String=0x10,Trilha 3
+String=0x15,Polna droga 3
+String=0x19,Грунтовая 3
+[end]
+
+; Track/Dirt Road 5 <=> Feld-/Waldweg 5 schmal
+[_line]
+Type=0x12207
+String=0x00,Track/Dirt Road 5
+String=0x01,Chemin/Piste 5
+String=0x02,Feld-/Waldweg 5
+String=0x03,Onverharde weg 5
+String=0x04,Track/Dirt Road 5
+String=0x05,Strada non asfaltata 5
+String=0x10,Trilha 5
+String=0x15,Polna droga 5
+String=0x19,Грунтовая дорога 5
 [end]
 
 
