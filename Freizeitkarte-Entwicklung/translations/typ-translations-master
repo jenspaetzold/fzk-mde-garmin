@@ -1627,15 +1627,15 @@ String=0x19,Жилая зона (ограниченный доступ)
 ; Unclassified Road (Narrow) <=> Nebenstraße schmal
 [_line]
 Type=0x10106
-String=0x00,Unclassified Road (Narrow)
+String=0x00,Unclassified Road
 String=0x01,Route étroite
 String=0x02,Nebenstraße
-String=0x03,Landweg (smal)
-String=0x04,Unclassified Road (Narrow)
-String=0x05,Strada minore (stretta)
-String=0x10,Rua não classificada (estreita)
-String=0x15,Droga czwartorzędna (wąska)
-String=0x19,Неопределённая дорога (узкая)
+String=0x03,Landweg
+String=0x04,Unclassified Road
+String=0x05,Strada minore)
+String=0x10,Rua não classificada
+String=0x15,Droga czwartorzędna
+String=0x19,Неопределённая дорога
 [end]
 
 ; Service Road <=> Erschließungsstraße schmal
@@ -1655,14 +1655,14 @@ String=0x19,Подъездная дорога
 ; Living Street (restricted) narrow <=> Spielstraße (Eingeschränkt) schmal
 [_line]
 Type=0x10108
-String=0x00,Living Street (restricted) narrow
+String=0x00,Living Street (restricted)
 String=0x01,Zone de rencontre étroite (accès limité)
 String=0x02,Spielstraße (Eingeschränkt)
 String=0x03,Woonerf
-String=0x04,Living Street (restricted) narrow
-String=0x05,Strada in zona residenziale (accesso limitato) stretta
-String=0x10,Passeio (restrito) estreito
-String=0x15,Strefa zamieszkania (ograniczony ruch) wąska
+String=0x04,Living Street (restricted)
+String=0x05,Strada in zona residenziale (accesso limitato)
+String=0x10,Passeio (restrito)
+String=0x15,Strefa zamieszkania (ograniczony ruch)
 String=0x19,Улица для детских игр (ограниченный доступ)
 [end]
 
@@ -2424,13 +2424,13 @@ String=0x19,Грунтовая дорога (ограниченный досту
 ; Bridleway narrow <=> Rad- / Fußweg schmal
 [_line]
 Type=0x10e10
-String=0x00,Cycle-/Footway narrow
+String=0x00,Cycle-/Footway
 String=0x01,Sentier étroit
 String=0x02,Rad-/Fußweg
-String=0x03,Fietspad/Voetpad nauw
-String=0x04,Cycle-/Footway narrow
-String=0x05,Sentiero pedonale/ciclabile stretta
-String=0x10,Ciclovia/Pedestres estreito
+String=0x03,Fietspad/Voetpad
+String=0x04,Cycle-/Footway
+String=0x05,Sentiero pedonale/ciclabile
+String=0x10,Ciclovia/Pedestres
 String=0x15,ścieżka rowerowa/chodnik 
 String=0x19,Вело-/пешеходная дорожка
 [end]
