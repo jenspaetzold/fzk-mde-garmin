@@ -6432,6 +6432,116 @@ CustomColor=No
 [end]
 
 
+[_line]
+Type=0x1220f
+UseOrientation=Y
+Xpm="32 5 2  1"
+"! c #C802C8"
+"  c none"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+String1=0x00,Fahrradroute schmal
+String2=0x01,Fahrradroute schmal
+String3=0x02,Fahrradroute
+String4=0x04,Bicyle Route
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x12215
+UseOrientation=Y
+Xpm="32 6 2  1"
+"! c #C802C8"
+"  c none"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+String1=0x00,Fahrradroute breit
+String2=0x01,Fahrradroute breit
+String3=0x02,Fahrradroute
+String4=0x04,Bicyle Route
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x12216
+UseOrientation=Y
+Xpm="32 7 2  1"
+"! c #C802C8"
+"  c none"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+String1=0x00,Fahrradroute schmal
+String2=0x01,Fahrradroute schmal
+String3=0x02,Fahrradroute
+String4=0x04,Bicyle Route
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x12217
+UseOrientation=Y
+Xpm="32 8 2  1"
+"! c #C802C8"
+"  c none"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+"                                "
+;12345678901234567890123456789012
+String1=0x00,Fahrradroute breit
+String2=0x01,Fahrradroute breit
+String3=0x02,Fahrradroute
+String4=0x04,Bicyle Route
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
+[_line]
+Type=0x1221e
+UseOrientation=Y
+LineWidth=1
+Xpm="0 0 1 0"
+"1 c #C802C8"
+String1=0x00,Fahrradroute
+String2=0x01,Fahrradroute
+String3=0x02,Fahrradroute
+String4=0x04,Bicyle Route
+ExtendedLabels=Y
+FontStyle=NoLabel (invisible)
+CustomColor=No
+[end]
+
+
 ;====================== POINTS ==========================
 
 
