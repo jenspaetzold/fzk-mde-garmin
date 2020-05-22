@@ -314,7 +314,11 @@ include "indexsearch";
 # from relations
 # -------------------------------------------------
 # Make sure that no route=bicycle is missing because of another route
+#ifdef BICYCLEROUTE
 extremecarver5=bike & route!=bicycle {add route=bicycle}
+#else
+route=bicycle {delete route}
+#endif
 
 
 # ------------------------------------------------------------------
@@ -899,7 +903,7 @@ highway = primary & man_made = dyke            [0x011f03 resolution 24 continue 
 ### highway = primary & embankment = yes       [0x011f03 resolution 24 continue with_actions]
 
 highway = primary & route=bicycle [0x012217 resolution 24 continue]
-highway = primary & route=bicycle [0x012216 resolution 20 continue]
+highway = primary & route=bicycle [0x012216 resolution 20-23 continue]
 highway = primary & route=bicycle [0x01220f resolution 18-19 continue]
 
 # Allgemein oeffentlich
@@ -911,7 +915,7 @@ highway = primary & route=bicycle [0x01220f resolution 18-19 continue]
 highway = primary {set name = '${name}' | '${ref}' | ''}        [0x011f15 resolution 24 continue with_actions]
 #highway = primary {set name = '${name}' | '${ref}' | ''}        [0x012101 resolution 23-23 continue with_actions]
 #highway = primary {set name = '${ref}' | ''}                    [0x010f0e resolution 22-22 continue with_actions]
-highway = primary {set name = '${ref}' | ''}                    [0x010f0f resolution 20 continue with_actions]
+highway = primary {set name = '${ref}' | ''}                    [0x010f0f resolution 20-23 continue with_actions]
 highway = primary {set name = '${ref}' | ''}                    [0x010e0b resolution 18-19]
 
 
@@ -927,7 +931,7 @@ highway = secondary & man_made = dyke           [0x01040c resolution 24 continue
 ### highway = secondary & embankment = yes [0x01040c resolution 24 continue with_actions]
 
 highway = secondary & route=bicycle [0x012217 resolution 24 continue]
-highway = secondary & route=bicycle [0x012216 resolution 20 continue]
+highway = secondary & route=bicycle [0x012216 resolution 20-23 continue]
 highway = secondary & route=bicycle [0x01220f resolution 18-19 continue]
 
 # Allgemein oeffentlich
@@ -935,10 +939,10 @@ highway = secondary & route=bicycle [0x01220f resolution 18-19 continue]
 # 0x010e0d = 4/1 (breit, NoLabel)
 # 0x010f10 = 2/1 (mittel, NoLabel)
 # 0x010f11 = 1/1 (schmal, NoLabel)
-highway = secondary {set name = '${ref}' | ''} [0x011f16 resolution 24 continue with_actions]
-#highway = secondary {set name = '${ref}' | ''} [0x010e0d resolution 23-23 continue with_actions]
-highway = secondary {set name = '${ref}' | ''} [0x010f10 resolution 20 continue with_actions]
-highway = secondary {set name = '${ref}' | ''} [0x010f11 resolution 18-19]
+highway = secondary {set name = '${name}' | '${ref}' | ''} [0x011f16 resolution 24 continue with_actions]
+#highway = secondary {set name = '${ref}' | ''}             [0x010e0d resolution 23-23 continue with_actions]
+highway = secondary {set name = '${ref}' | ''}             [0x010f10 resolution 20-23 continue with_actions]
+highway = secondary {set name = '${ref}' | ''}             [0x010f11 resolution 18-19]
 
 
 # Kreisstrasse:
@@ -953,7 +957,7 @@ highway = tertiary & man_made = dyke            [0x011f03 resolution 24 continue
 ### highway = tertiary & embankment = yes [0x011f03 resolution 24 continue with_actions]
 
 highway = tertiary & route=bicycle [0x012217 resolution 24 continue]
-highway = tertiary & route=bicycle [0x012216 resolution 20 continue]
+highway = tertiary & route=bicycle [0x012216 resolution 20-23 continue]
 highway = tertiary & route=bicycle [0x01221e resolution 18-19 continue]
 
 # Allgemein oeffentlich
@@ -961,7 +965,7 @@ highway = tertiary & route=bicycle [0x01221e resolution 18-19 continue]
 # 0x010f12 = 2/1 (mittel, NoLabel)
 # 0x010f13 = 1/1 (schmal, NoLabel)
 highway = tertiary {set name = '${name}' | '${ref}' | ''} [0x010e0e resolution 24 continue with_actions]
-highway = tertiary {set name = '${ref}' | ''}             [0x010f12 resolution 20 continue with_actions]
+highway = tertiary {set name = '${ref}' | ''}             [0x010f12 resolution 20-23 continue with_actions]
 highway = tertiary {set name = '${ref}' | ''}             [0x010f13 resolution 18-19]
 
 
@@ -976,7 +980,7 @@ highway = residential & (area != * | area = no) & man_made = dyke           [0x0
 ### highway = residential & (area != * | area = no) & embankment = yes [0x011f03 resolution 24 continue]
 
 highway = residential & route=bicycle [0x012217 resolution 24 continue]
-highway = residential & route=bicycle [0x012216 resolution 21 continue]
+highway = residential & route=bicycle [0x012216 resolution 21-23 continue]
 highway = residential & route=bicycle [0x01221e resolution 18-20 continue]
 
 # Benutzung verboten, kein Routing
@@ -1016,7 +1020,7 @@ highway = unclassified & (area != * | area = no) & man_made = dyke            [0
 ### highway = unclassified & (area != * | area = no) & embankment = yes [0x011f03 resolution 24 continue]
 
 highway = unclassified & route=bicycle [0x012217 resolution 24 continue]
-highway = unclassified & route=bicycle [0x012216 resolution 21 continue]
+highway = unclassified & route=bicycle [0x012216 resolution 21-23 continue]
 highway = unclassified & route=bicycle [0x01221e resolution 18-20 continue]
 
 # Benutzung verboten, kein Routing
@@ -1055,7 +1059,7 @@ highway = service & (area != * | area = no) & man_made = dyke            [0x011f
 ### highway = service & (area != * | area = no) & embankment = yes [0x011f03 resolution 24 continue]
 
 highway = service & route=bicycle [0x012217 resolution 24 continue]
-highway = service & route=bicycle [0x012216 resolution 21 continue]
+highway = service & route=bicycle [0x012216 resolution 21-23 continue]
 highway = service & route=bicycle [0x01221e resolution 18-20 continue]
 
 # Benutzung verboten, kein Routing
@@ -1095,7 +1099,7 @@ highway = living_street & (area != * | area = no) & man_made = dyke            [
 ### highway = living_street & (area != * | area = no) & embankment = yes [0x011f03 resolution 24 continue]
 
 highway = living_street & route=bicycle [0x012217 resolution 24 continue]
-highway = living_street & route=bicycle [0x012216 resolution 21 continue]
+highway = living_street & route=bicycle [0x012216 resolution 21-23 continue]
 highway = living_street & route=bicycle [0x01221e resolution 18-20 continue]
 
 # Benutzung verboten, kein Routing
@@ -1180,7 +1184,7 @@ highway = radweg & man_made = dyke            [0x011f05 resolution 24 continue]
 ### highway = radweg & embankment = yes [0x011f05 resolution 24 continue]
 
 highway = radweg & route=bicycle [0x012215 resolution 24 continue]
-highway = radweg & route=bicycle [0x01220f resolution 22 continue]
+highway = radweg & route=bicycle [0x01220f resolution 22-23 continue]
 highway = radweg & route=bicycle [0x01221e resolution 18-21 continue]
 
 # Allgemein oeffentlich
@@ -1203,14 +1207,14 @@ highway = fussweg & man_made = dyke            [0x011f05 resolution 24 continue]
 ### highway = fussweg & embankment = yes [0x011f05 resolution 24 continue]
 
 highway = fussweg & route=bicycle [0x012215 resolution 24 continue]
-highway = fussweg & route=bicycle [0x01220f resolution 22 continue]
+highway = fussweg & route=bicycle [0x01220f resolution 22-23 continue]
 highway = fussweg & route=bicycle [0x01221e resolution 18-21 continue]
 
 # Benutzung verboten, kein Routing
 # 0x010e11 = Bitmap 2 (breit, NoLabel)
 # 0x010e12 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = fussweg & keinrouting = yes [0x010e11 resolution 24 continue]
-highway = fussweg & keinrouting = yes [0x010e12 resolution 23-23]
+highway = fussweg & keinrouting = yes [0x010e12 resolution 22-23]
 
 # Allgemein oeffentlich
 # 0x011f12 = 2 (breit, NoLabel)
@@ -1229,7 +1233,7 @@ highway = radfussweg & man_made = dyke            [0x011f05 resolution 24 contin
 ### highway = radfussweg & embankment = yes [0x011f05 resolution 24 continue]
 
 highway = radfussweg & route=bicycle [0x012215 resolution 24 continue]
-highway = radfussweg & route=bicycle [0x01220f resolution 22 continue]
+highway = radfussweg & route=bicycle [0x01220f resolution 22-23 continue]
 highway = radfussweg & route=bicycle [0x01221e resolution 18-21 continue]
 
 # Allgemein oeffentlich
@@ -1283,8 +1287,8 @@ highway = pedestrian & (area != * | area = no) & man_made = dyke            [0x0
 ### highway = pedestrian & (area != * | area = no) & embankment = yes [0x011f03 resolution 24 continue]
 
 highway = pedestrian & route=bicycle [0x012217 resolution 24 continue]
-highway = pedestrian & route=bicycle [0x012216 resolution 22 continue]
-highway = pedestrian & route=bicycle [0x01221e resolution 18-21 continue]
+highway = pedestrian & route=bicycle [0x012216 resolution 21-23 continue]
+highway = pedestrian & route=bicycle [0x01221e resolution 18-20 continue]
 
 # Allgemein oeffentlich
 # 0x011f1b = 3/1 (breit, NoLabel)
@@ -1406,20 +1410,20 @@ highway = feldweg0 & man_made = dyke            [0x011f05 resolution 24 continue
 ### highway = feldweg0 & embankment = yes [0x011f05 resolution 24 continue]
 
 highway = feldweg0 & route=bicycle [0x012215 resolution 24 continue]
-highway = feldweg0 & route=bicycle [0x01220f resolution 22 continue]
+highway = feldweg0 & route=bicycle [0x01220f resolution 22-23 continue]
 highway = feldweg0 & route=bicycle [0x01221e resolution 18-21 continue]
 
 # Benutzung verboten, kein Routing
 # 0x010e15 = Bitmap 2 (breit, NoLabel)
 # 0x010e16 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg0 & keinrouting = yes [0x010e13 resolution 24 continue]
-highway = feldweg0 & keinrouting = yes [0x010e14 resolution 22 continue]
+highway = feldweg0 & keinrouting = yes [0x010e14 resolution 22-23 continue]
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010e18 = Bitmap 2 (breit, NoLabel)
 # 0x010e08 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg0 [0x012203 resolution 24 continue]
-highway = feldweg0 [0x012205 resolution 22]
+highway = feldweg0 [0x012205 resolution 22-23]
 
 # Replaced with above, no distinction for auto=yes or auto=no
 ## Nicht fuer Autos freigegeben
@@ -1444,20 +1448,20 @@ highway = feldweg1 & man_made = dyke            [0x011f05 resolution 24 continue
 # highway = feldweg1 & enbankment = yes [0x011f04 resolution 24 continue]
 
 highway = feldweg1 & route=bicycle [0x012215 resolution 24 continue]
-highway = feldweg1 & route=bicycle [0x01220f resolution 22 continue]
+highway = feldweg1 & route=bicycle [0x01220f resolution 22-23 continue]
 highway = feldweg1 & route=bicycle [0x01221e resolution 18-21 continue]
 
 # Benutzung verboten, kein Routing
 # 0x010e13 = 3 (breit, NoLabel)
 # 0x010e14 = 2 (schmal, NoLabel)
 highway = feldweg1 & keinrouting = yes [0x010e13 resolution 24 continue]
-highway = feldweg1 & keinrouting = yes [0x010e14 resolution 22 continue]
+highway = feldweg1 & keinrouting = yes [0x010e14 resolution 22-23 continue]
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010e09 = 3 (breit, NoLabel)
 # 0x010e07 = 2 (schmal, NoLabel)
 highway = feldweg1  [0x010e09 resolution 24 continue]
-highway = feldweg1  [0x010e07 resolution 22]
+highway = feldweg1  [0x010e07 resolution 22-23]
 
 # Replaced with above, no distinction for auto=yes or auto=no
 ## Nicht fuer Autos freigegeben
@@ -1483,20 +1487,20 @@ highway = feldweg2 & man_made = dyke            [0x011f05 resolution 24 continue
 ### highway = feldweg2 & embankment = yes [0x011f05 resolution 24 continue]
 
 highway = feldweg2 & route=bicycle [0x012215 resolution 24 continue]
-highway = feldweg2 & route=bicycle [0x01220f resolution 22 continue]
+highway = feldweg2 & route=bicycle [0x01220f resolution 22-23 continue]
 highway = feldweg2 & route=bicycle [0x01221e resolution 18-21 continue]
 
 # Benutzung verboten, kein Routing
 # 0x010e15 = Bitmap 2 (breit, NoLabel)
 # 0x010e16 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg2 & keinrouting = yes [0x010e13 resolution 24 continue]
-highway = feldweg2 & keinrouting = yes [0x010e14 resolution 22 continue]
+highway = feldweg2 & keinrouting = yes [0x010e14 resolution 22-23 continue]
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010e18 = Bitmap 2 (breit, NoLabel)
 # 0x010e08 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg2 [0x010e18 resolution 24 continue]
-highway = feldweg2 [0x010e08 resolution 22]
+highway = feldweg2 [0x010e08 resolution 22-23]
 
 # Replaced with above, no distinction for auto=yes or auto=no
 ## Nicht fuer Autos freigegeben
@@ -1522,20 +1526,20 @@ highway = feldweg3 & man_made = dyke            [0x011f05 resolution 24 continue
 ### highway = feldweg3 & embankment = yes [0x011f05 resolution 24 continue]
 
 highway = feldweg3 & route=bicycle [0x012215 resolution 24 continue]
-highway = feldweg3 & route=bicycle [0x01220f resolution 22 continue]
+highway = feldweg3 & route=bicycle [0x01220f resolution 22-23 continue]
 highway = feldweg3 & route=bicycle [0x01221e resolution 18-21 continue]
 
 # Benutzung verboten, kein Routing
 # 0x010e15 = Bitmap 2 (breit, NoLabel)
 # 0x010e16 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg3 & keinrouting = yes [0x010e13 resolution 24 continue]
-highway = feldweg3 & keinrouting = yes [0x010e14 resolution 22 continue]
+highway = feldweg3 & keinrouting = yes [0x010e14 resolution 22-23 continue]
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010e18 = Bitmap 2 (breit, NoLabel)
 # 0x010e08 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg3 [0x012204 resolution 24 continue]
-highway = feldweg3 [0x012206 resolution 22]
+highway = feldweg3 [0x012206 resolution 22-23]
 
 # Replaced with above, no distinction for auto=yes or auto=no
 ## Nicht fuer Autos freigegeben
@@ -1561,21 +1565,21 @@ highway = feldweg4 & man_made = dyke            [0x011f05 resolution 24 continue
 ### highway = feldweg4 & embankment = yes [0x011f05 resolution 24 continue]
 
 highway = feldweg4 & route=bicycle [0x012215 resolution 24 continue]
-highway = feldweg4 & route=bicycle [0x01220f resolution 22 continue]
+highway = feldweg4 & route=bicycle [0x01220f resolution 22-23 continue]
 highway = feldweg4 & route=bicycle [0x01221e resolution 18-21 continue]
 
 # Benutzung verboten, kein Routing
 # 0x010e17 = Bitmap 2 (breit, NoLabel)
 # 0x010e1e = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg4 & keinrouting = yes [0x010e13 resolution 24 continue]
-highway = feldweg4 & keinrouting = yes [0x010e14 resolution 22 continue]
+highway = feldweg4 & keinrouting = yes [0x010e14 resolution 22-23 continue]
 
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010109 = Bitmap 2 (breit, NoLabel)
 # 0x01011d = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg4 [0x010109 resolution 24 continue]
-highway = feldweg4 [0x01011d resolution 22]
+highway = feldweg4 [0x01011d resolution 22-23]
 
 
 # Replaced with above, no distinction for auto=yes or auto=no
@@ -1603,21 +1607,21 @@ highway = feldweg5 & man_made = dyke            [0x011f05 resolution 24 continue
 ### highway = feldweg5 & embankment = yes [0x011f05 resolution 24 continue]
 
 highway = feldweg5 & route=bicycle [0x01220f resolution 24 continue]
-highway = feldweg5 & route=bicycle [0x01220f resolution 22 continue]
+highway = feldweg5 & route=bicycle [0x01220f resolution 22-23 continue]
 highway = feldweg5 & route=bicycle [0x01221e resolution 18-21 continue]
 
 # Benutzung verboten, kein Routing
 # 0x010e17 = Bitmap 2 (breit, NoLabel)
 # 0x010e1e = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg5 & keinrouting = yes [0x010e13 resolution 24 continue]
-highway = feldweg5 & keinrouting = yes [0x010e14 resolution 22 continue]
+highway = feldweg5 & keinrouting = yes [0x010e14 resolution 22-23 continue]
 
 
 # Nicht fuer Autos freigegeben oder öffentlich
 # 0x010109 = Bitmap 2 (breit, NoLabel)
 # 0x01011d = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
 highway = feldweg5 [0x012207 resolution 24 continue]
-highway = feldweg5 [0x012207 resolution 22]
+highway = feldweg5 [0x012207 resolution 22-23]
 
 
 # Replaced with above, no distinction for auto=yes or auto=no
@@ -1647,7 +1651,7 @@ highway = road & man_made = dyke            [0x011f04 resolution 24 continue]
 ### highway = road & embankment = yes [0x011f04 resolution 24 continue]
 
 highway = road & route=bicycle [0x012217 resolution 24 continue]
-highway = road & route=bicycle [0x012216 resolution 22 continue]
+highway = road & route=bicycle [0x012216 resolution 22-23 continue]
 highway = road & route=bicycle [0x01221e resolution 18-21 continue]
 
 # Benutzung verboten, kein Routing
@@ -1657,12 +1661,12 @@ highway = road & keinrouting = yes [0x010e02 resolution 24]
 # Nicht fuer Autos freigegeben
 # 0x010e02 = 2/1 (NoLabel)
 highway = road &  auto = no [0x010e02 resolution 24 continue]
-highway = road &  auto = no [0x012202 resolution 22]
+highway = road &  auto = no [0x012202 resolution 22-23]
 
 # Allgemein oeffentlich
 # 0x010e01 = 2/1 (NoLabel)
 highway = road [0x010e01 resolution 24 continue]
-highway = road [0x012201 resolution 22]
+highway = road [0x012201 resolution 22-23]
 
 
 # Baustelle / im Bau:
