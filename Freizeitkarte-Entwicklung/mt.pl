@@ -949,8 +949,8 @@ elsif ( $actionname eq 'pmd' ) {
   else {
 	  fetch_osmdata        ();
   }
-  fetch_eledata            ();
-  check_osmid              ();
+  #fetch_eledata            ();
+  #check_osmid              ();
   join_mapdata             ();
   split_mapdata            ();
 }
