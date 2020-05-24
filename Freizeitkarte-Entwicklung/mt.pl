@@ -15,6 +15,7 @@ use warnings;
 use English '-no_match_vars';
 
 use Cwd;
+use Cwd 'abs_path';
 use File::Copy;
 use File::Copy "cp";
 use File::Find;
@@ -48,8 +49,8 @@ my @actions = (
   [ 'typ',        'B. create individual typ file from master' ,                       'optional' ,    'yes' ,      '23' ],
   [ 'compiletyp', 'B. compile TYP files out of text files' ,                          'optional' ,    'yes' ,      '23' ],
   [ 'nsisgmap',   'C. create nsis installer (GMAP for BaseCamp Windows)' ,            'optional' ,    'yes' ,      '23' ],
-  [ 'gmap2',      'D. create gmap file (for BaseCamp OS X, Windows)' ,                'optional' ,    'yes' ,      '23' ],
-  [ 'gmap3',      'D. create gmap file (for BaseCamp OS X, Windows)' ,                'optional' ,    'yes' ,      '23' ],
+  [ 'gmap2',      'D. create gmap file - gmapi-builder (for BaseCamp OS X, Windows)', 'optional' ,    'yes' ,      '23' ],
+  [ 'gmap3',      'D. create gmap file - jmc_cli (for BaseCamp OS X, Windows)' ,      'optional' ,    'yes' ,      '23' ],
   [ 'bim',        'E1.build images: create, fetch_*, join, split, build' ,            'optional' ,    'yes' ,      '23' ],
   [ 'bam',        'E2.build all maps: gmap, nsis, gmapsupp, imagedir' ,               'optional' ,    'yes' ,      '23' ],
   [ 'pmd',        'F1.Prepare Map Data: create, fetch_*, join, split' ,               'optional' ,    'no' ,       '23' ],
@@ -182,7 +183,7 @@ my %lic_osm = ();
 my %lic_ele = ();
 
 # Read the license default values
-read_default_licenses ();
+#read_default_licenses ();
 
 # FZK maps: static
 my @maps = (
@@ -318,6 +319,8 @@ my @maps = (
   [ 6740, 'Freizeitkarte_SUR',                    'http://download.geofabrik.de/south-america/suriname-latest.osm.pbf',                                'SUR',                      'en', 'no_old_name',                             3, 'NA'             , 'gmapsupp.img'   ],
   [ 6858, 'Freizeitkarte_URY',                    'http://download.geofabrik.de/south-america/uruguay-latest.osm.pbf',                                 'URY',                      'en', 'no_old_name',                             3, 'NA'             , 'gmapsupp.img'   ],
   [ 6710, 'Freizeitkarte_ZAF',                    'http://download.geofabrik.de/africa/south-africa-and-lesotho-latest.osm.pbf',                       'ZAF',                      'en', 'no_old_name',                             3, 'NA'             , 'gmapsupp.img'   ],
+  [ 6360, 'Freizeitkarte_IDN',                    'http://download.geofabrik.de/asia/indonesia-latest.osm.pbf',                                        'IDN',                      'en', 'no_old_name',                             3, 'NA'             ],
+  [ 6356, 'Freizeitkarte_IND',                    'http://download.geofabrik.de/asia/india-latest.osm.pbf',                                            'IND',                      'en', 'no_old_name',                             3, 'NA'             ],
 
   # Andere Regionen
 #  [ -1,   'Andere Regionen',                      'URL',                                                                                               'Code',               'Language', 'oldName',                            'Type', 'Parent'         , 'gmapsupp.img'   ],
@@ -373,6 +376,7 @@ my @maps = (
   [ 9030, 'Freizeitkarte_RUS_CENTRAL_FD+',         'NA',                                                                                                'RUS_CENTRAL_FD+',         'ru', 'no_old_name',                             2, 'RUS'            , 'gmapsupp.img'   ],
   [ 9040, 'Freizeitkarte_AZORES',                  'http://download.geofabrik.de/europe/azores-latest.osm.pbf',                                         'AZORES',                  'pt', 'Freizeitkarte_Azoren',                    3, 'NA'             , 'gmapsupp.img'   ],
   [ 9050, 'Freizeitkarte_ISR_PSE',                 'http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf',                             'ISR_PSE',                 'en', 'Freizeitkarte_Israel_Palaestina',         3, 'NA'             ],
+  [ 9060, 'Freizeitkarte_MYS_SGP_BRN',             'http://download.geofabrik.de/asia/malaysia-singapore-brunei-latest.osm.pbf',                        'MYS_SGP_BRN',             'en', 'no_old_name',                             3, 'NA'             ],
 
   # Andere Regionen
   [ 9701, 'Freizeitkarte_US_WASHINGTON',           'http://download.geofabrik.de/north-america/us/washington-latest.osm.pbf',                           'US_WASHINGTON',           'en', 'no_old_name',                             3, 'NA'             , 'gmapsupp.img'   ],
@@ -430,7 +434,7 @@ my $ACTIONTARGET = 4;
 my $LANGCODE = 0;
 my $LANGDESC = 1;
 
-my $VERSION = '1.3.15 - 2019/03/02';
+my $VERSION = '1.3.17 - 2019/04/14';
 
 # Maximale Speichernutzung (Heapsize im MB) beim Splitten und Compilieren
 my $javaheapsize = 8192;
@@ -442,7 +446,12 @@ my $max_jobs = $EMPTY;
 my $max_threads = $EMPTY;
 
 # basepath
-my $BASEPATH = getcwd ( $PROGRAM_NAME );
+# fixed below statment, did only work if cwd was already $BASEPATH
+#my $BASEPATH = getcwd ( $PROGRAM_NAME ) ;
+my $BASEPATH = dirname ( abs_path( $PROGRAM_NAME ) );
+
+# Read the license default values
+read_default_licenses ();
 
 ## Global PC_ReturnCode - used mainly for process_command () - to be rechecked and solved differently eventually
 #my $pc_returncode = 0;
@@ -523,6 +532,8 @@ my $command = $EMPTY;
 
 my $alltypfile = $EMPTY;
 my $typfilelangcode = $EMPTY;
+
+my $mkgmap_common_parameter = $EMPTY;
 
 
 # get the command line parameters
@@ -756,17 +767,17 @@ if ( $nametaglist ne $EMPTY ) {
 # Check / Set DEM options
 if ( $dempath ne $EMPTY ) {
 
-   # In case the dempath does not exist, try to add $BASEPATH in front of it
-   # (in case it was relative)
-   unless ( -e "$dempath" ) {
-     if ( -e "$BASEPATH/$dempath" ) {
-	   $dempath="$BASEPATH/$dempath";
-	 }
-	 else {
-	     die "error: dempath $dempath not existing\n";
-	 }
+   # Create absolute path for dempath: absolut, relativ to cwd or relative to $BASEPATH
+   if ( -e "$BASEPATH/$dempath" ) {
+     $dempath="$BASEPATH/$dempath";
    }
-
+   elsif ( -e "$dempath" ) {
+     $dempath = abs_path( $dempath );
+     }
+   else {
+     die "error: dempath $dempath not existing\n";
+   }
+   
    if (( $demtype ne $EMPTY ) && ( $demdists ne $EMPTY) ) {
  	 printf { *STDOUT } ( "WARNING:\n  --demdists overwrites defaults choosen by --demtype.\n  Make sure this is really what you want\n\n\n" );  
    }
@@ -903,7 +914,7 @@ elsif ( $actionname eq 'gmap2' ) {
 elsif ( $actionname eq 'gmap3' ) {
   update_ele_license       ();
   create_typfile   ();
-  create_gmap3 ();
+  create_gmapfile_jmc_cli ();
 }
 elsif ( $actionname eq 'bim' ) {
   purge_dirs               ();
@@ -1242,6 +1253,44 @@ sub check_downloadurls {
 }
 
 # -------------------------------------------
+# Check single URL Routine
+# -------------------------------------------
+sub check_url {
+
+  my $download_src = shift;
+
+  my $returnvalue;
+  my $url_valid = 1;
+
+  if ( ( $OSNAME eq 'darwin' ) || ( $OSNAME eq 'linux' ) || ( $OSNAME eq 'freebsd' ) || ( $OSNAME eq 'openbsd' ) ) {
+    # OS X, Linux, FreeBSD, OpenBSD
+    $command = "curl --output /dev/null --silent --fail --head --url \"$download_src\"";
+
+  }
+  elsif ( $OSNAME eq 'MSWin32' ) {
+    # Windows
+    $command = "$BASEPATH/tools/wget/windows/wget.exe -q --spider \"$download_src\"";
+
+  }
+  else {
+    die ( "\nError: Operating system $OSNAME not supported.\n" );
+    return ( 1 );
+  }
+  
+  # Run the command
+  $returnvalue = system( $command );
+  if ( $returnvalue != 0 ) {
+ 	$url_valid = 0;
+  }
+
+ 
+  # Return the status
+  return ( $url_valid );
+
+}
+
+
+# -------------------------------------------
 # Download URL Routine (used in other places)
 # -------------------------------------------
 sub download_url {
@@ -1377,9 +1426,21 @@ sub fetch_eledata {
     return ( 1 );
   }
   
-  # Try to fetch the additional files *.info *.license
-  download_url( "$eleurl.info", "$filename.info");
-  download_url( "$eleurl.license", "$filename.license");
+  # Try to fetch the additional file *.info
+  if ( check_url( "$eleurl.info" ) ) {
+     download_url( "$eleurl.info", "$filename.info");
+  }
+  else {
+      printf { *STDERR } ( "\nINFORMATION: $eleurl.info not existing.\n" );
+  }
+
+  # Try to fetch the additional file *.license  
+  if ( check_url ( "$eleurl.license" ) ) {
+      download_url ( "$eleurl.license", "$filename.license");
+  }
+  else {
+      printf { *STDERR } ( "\nINFORMATION: $eleurl.license not existing.\n" );
+  }
 
   return;
 }
@@ -1446,9 +1507,9 @@ sub read_licensefile {
 sub read_default_licenses {
 
   # Set filenames
-  my $fzk_licensefile = "licenses/default-freizeitkarte.license";
-  my $osm_licensefile = "licenses/default-osm.license";
-  my $ele_licensefile = "licenses/default-elevation.license";
+  my $fzk_licensefile = "$BASEPATH/licenses/default-freizeitkarte.license";
+  my $osm_licensefile = "$BASEPATH/licenses/default-osm.license";
+  my $ele_licensefile = "$BASEPATH/licenses/default-elevation.license";
     
   # Handle fzk license file
   my %lic_tmphash = ();
@@ -2146,7 +2207,7 @@ sub create_cfgfile {
 	  . "#   \"Aleksandra\" and \"Gryglewskiego\". It will also increase the size of the index.\n"
 	  . "#   Useful in countries where searching for the first word in name is not the right\n"
 	  . "#   thing to do. Words following an opening bracket '(' are ignored.\n" 
-	  . "#split-name-index\n" );
+	  . "split-name-index\n" );
 
   printf { $fh } 
     (   "\n" 
@@ -4364,7 +4425,7 @@ sub create_nsis_exe_gmap {
 # 3: error in processing files
 # 4: unhandled exception
 # -----------------------------------------
-sub create_gmapfile {
+sub create_gmapfile_jmc_cli {
 
   # jump to correct directory
   chdir "$WORKDIRLANG";
@@ -4447,6 +4508,37 @@ sub create_gmapfile {
   return;
 }
 
+# -----------------------------------------
+# Set the common options for mkgmap
+# -----------------------------------------
+# used for gmapsupp and gmapfile
+sub set_mkgmap_common_parameter {
+
+  my $tmp_description = "$mapname (Release $releasestring)";
+  
+  # make sure the description is not more than 50 characters
+  if ( length($tmp_description) > 50 ) {
+     $tmp_description = "$mapname ($releasestring)";
+	 if ( length($tmp_description) > 50 ) {
+	 $tmp_description = substr( $tmp_description, 0, 50 );
+	 }
+  }
+
+  $mkgmap_common_parameter = sprintf (
+        "--index --split-name-index "
+	  . "--code-page=$mapcodepage "
+      . "--license-file=$mapname.license "
+      . "--product-id=1 --family-id=$mapid --family-name=\"$mapname\" "
+      . "--series-name=\"$mapname\" --description=\"$tmp_description\" "
+      . "--overview-mapname=\"$mapname\" --overview-mapnumber=%s0000 "
+      . "--product-version=\"%d\" $mapid*.img $mapid.TYP "
+      . "--tdbfile "
+      . "--show-profiles=1 ",
+      $mapid,$releasenumeric
+  );
+
+}
+
 
 # -----------------------------------------
 # create gmapsupp.img: format for GPS device
@@ -4459,6 +4551,9 @@ sub create_gmapsuppfile {
   # create License file
   create_licensefile;
 
+  # set common parameters
+  set_mkgmap_common_parameter;
+
   # mkgmap-Parameter
   # --description: Anzeige des Kartennamens in BaseCamp
   # --description: alleinige Anzeige des Kartennamens in einigen GPS-Geräten (z.B. 62er)
@@ -4466,16 +4561,8 @@ sub create_gmapsuppfile {
   # --family-name: primäre Anzeige des Kartennamens in einigen GPS-Geräten (z.B. Dakota)
   # --series-name: This name will be displayed in MapSource in the map selection drop-down.
   my $mkgmap_parameter = sprintf (
-        "--index --code-page=$mapcodepage --gmapsupp "
-      . "--license-file=$mapname.license "
-      . "--product-id=1 --family-id=$mapid --family-name=\"$mapname\" "
-      . "--series-name=\"$mapname\" --description=\"$mapname (Release $releasestring)\" "
-      . "--overview-mapname=\"$mapname\" --overview-mapnumber=%s0000 "
-      . "--product-version=\"%d\" $mapid*.img $mapid.TYP "
-      . "--tdbfile "
-      . "--show-profiles=1 ",
-      $mapid,$releasenumeric
-#      $mapid
+        "--gmapsupp "
+      . "$mkgmap_common_parameter"
   );
  
   # run mkgmap to create the actual gmapsupp.img
@@ -4506,13 +4593,16 @@ sub create_gmapsuppfile {
 # -----------------------------------------
 # create gmap for basecamp: using mkgmap
 # -----------------------------------------
-sub create_gmap3 {
+sub create_gmapfile {
 
   # Jump to the work directory
   chdir "$WORKDIRLANG";
 
   # create License file
   create_licensefile;
+  
+  # set common parameters
+  set_mkgmap_common_parameter;
 
   # mkgmap-Parameter
   # --description: Anzeige des Kartennamens in BaseCamp
@@ -4521,21 +4611,10 @@ sub create_gmap3 {
   # --family-name: primäre Anzeige des Kartennamens in einigen GPS-Geräten (z.B. Dakota)
   # --series-name: This name will be displayed in MapSource in the map selection drop-down.
   my $mkgmap_parameter = sprintf (
-        "--index --code-page=$mapcodepage --gmapi "
-      . "--license-file=$mapname.license "
-      . "--product-id=1 --family-id=$mapid --family-name=\"$mapname\" "
-      . "--series-name=\"$mapname\" --description=\"$mapname (Release $releasestring)\" "
-      . "--overview-mapname=\"$mapname\" --overview-mapnumber=%s0000 "
-      . "--product-version=\"%d\" $mapid*.img $mapid.TYP "
-      . "--tdbfile "
-      . "--show-profiles=1 ",
-      $mapid, $releasenumeric
-#      $mapid,$releasenumeric
+        "--gmapi "
+      . "$mkgmap_common_parameter"
   );
-#  my $mkgmap_parameter = sprintf (
-#        "-c $mapname.cfg --gmapi "
-#  );
-#
+
   # run mkgmap to create the actual gmap archive
   $command =
       "java -Xmx"
