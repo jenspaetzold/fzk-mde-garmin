@@ -1357,6 +1357,10 @@ highway = path & tunnel = yes               [0x010408 resolution 24 continue]
 highway = path & man_made = dyke            [0x011f05 resolution 24 continue]
 ### highway = path & embankment = yes [0x011f05 resolution 24 continue]
 
+highway = path & route=bicycle [0x012215 resolution 24 continue]
+highway = path & route=bicycle [0x01220f resolution 22-23 continue]
+highway = path & route=bicycle [0x01221e resolution 18-21 continue]
+
 # Benutzung verboten, kein Routing
 # 0x010e11 = Bitmap 2 (breit, NoLabel)
 # 0x010e12 = Bitmap 2 (schmal, nur ein Pixel gefuellt, NoLabel)
